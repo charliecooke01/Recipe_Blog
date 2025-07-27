@@ -79,7 +79,12 @@ function fetchPosts() {
       posts.forEach((post) => {
         const div = document.createElement("div");
         div.innerHTML = `<h3>${post.title}</h3><p>${
-          post.content
+          post.description,
+          post.serves,
+          post.prep,
+          post.cook,
+          post.ingredients,
+          post.method
         }</p><small>By: ${post.postedBy} on ${new Date(
           post.createdOn
         ).toLocaleString()}</small>`;
@@ -90,14 +95,19 @@ function fetchPosts() {
 
 function createPost() {
   const title = document.getElementById("post-title").value;
-  const content = document.getElementById("post-content").value;
+  const description = document.getElementById("post-description").value;
+  const serves = document.getElementById("post-serves").value;
+  const prep = document.getElementById("post-prep").value;
+  const cook = document.getElementById("cook").value;
+  const ingredients = document.getElementById("post-ingredients").value;
+  const method = document.getElementById("post-method").value;
   fetch("http://localhost:3001/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ title, content, postedBy: "User" }),
+    body: JSON.stringify({ title, description, serves, prep, cook, ingredients, method, postedBy: "User" }),
   })
     .then((res) => res.json())
     .then(() => {

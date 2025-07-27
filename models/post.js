@@ -10,7 +10,27 @@ Post.init(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    content: {
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    serves: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    prep: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    cook: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    ingredients: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
+    method: {
       type: DataTypes.TEXT,
       allowNull: false,
     },

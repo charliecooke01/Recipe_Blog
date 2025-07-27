@@ -7,8 +7,8 @@ const { Post } = require("../models/index");
 // Route to add a new post
 app.post("/", async (req, res) => {
   try {
-    const { title, content, postedBy } = req.body;
-    const post = await Post.create({ title, content, postedBy });
+    const { title, description, serves, prep, cook, ingredients, method, postedBy } = req.body;
+    const post = await Post.create({ title, description, serves, prep, cook, ingredients, method, postedBy });
 
     res.status(201).json(post);
   } catch (error) {
@@ -39,9 +39,9 @@ app.get("/:id", async (req, res) => {
 // Route to update a post
 app.put("/:id", async (req, res) => {
   try {
-    const { title, content, postedBy } = req.body;
+    const { title, description, serves, prep, cook, ingredients, method, postedBy } = req.body;
     const post = await Post.update(
-      { title, content, postedBy },
+      { title, description, serves, prep, cook, ingredients, method, postedBy },
       { where: { id: req.params.id } }
     );
     res.json(post);
