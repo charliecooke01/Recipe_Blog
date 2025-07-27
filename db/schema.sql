@@ -1,2 +1,2 @@
-drop database if exists posts_db;
-create database posts_db;
+drop database if exists recipe_db;
+create database recipe_db;
