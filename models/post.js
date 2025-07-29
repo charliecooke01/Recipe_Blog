@@ -11,7 +11,7 @@ Post.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     serves: {
@@ -27,11 +27,11 @@ Post.init(
       allowNull: false,
     },
     ingredients: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     method: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     postedBy: {

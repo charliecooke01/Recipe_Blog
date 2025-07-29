@@ -75,19 +75,29 @@ function fetchPosts() {
     .then((res) => res.json())
     .then((posts) => {
       const postsContainer = document.getElementById("posts");
+      
+
       postsContainer.innerHTML = "";
       posts.forEach((post) => {
+
+        //formats string into multiple lines
+        const ingredients = post.ingredients;
+        const ingredientsSplit = ingredients.split(',').join('<br>');
+        const method = post.method;
+        const methodSplit = method.split('*').join('<br><br>');
+
         const div = document.createElement("div");
-        div.innerHTML = `<h3>${post.title}</h3><p>${
-          post.description,
-          post.serves,
-          post.prep,
-          post.cook,
-          post.ingredients,
-          post.method
-        }</p><small>By: ${post.postedBy} on ${new Date(
-          post.createdOn
-        ).toLocaleString()}</small>`;
+        div.innerHTML = `
+            <h3>${post.title}</h3>
+            <p>${post.description}</p>
+            <p>Serves: ${post.serves}</p>
+            <p>Prep Time: ${post.prep}</p>
+            <p>Cook Time:${post.cook}</p>
+            <h4>Ingredients</h4>
+            <p>${ingredientsSplit}</p>
+            <h4>Method</h4>
+            <p>${methodSplit}</p>          
+            <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>`;
         postsContainer.appendChild(div);
       });
     });
@@ -98,7 +108,7 @@ function createPost() {
   const description = document.getElementById("post-description").value;
   const serves = document.getElementById("post-serves").value;
   const prep = document.getElementById("post-prep").value;
-  const cook = document.getElementById("cook").value;
+  const cook = document.getElementById("post-cook").value;
   const ingredients = document.getElementById("post-ingredients").value;
   const method = document.getElementById("post-method").value;
   fetch("http://localhost:3001/api/posts", {
