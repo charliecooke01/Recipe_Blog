@@ -1,91 +1,95 @@
-# Full Stack Application with Node, Express, Sequelize, and Authentication
+# Full Stack Tech Blog Application
 
 ## Challenge
 
-In this challenge, you have a full stack application built with **Node.js**, **Express**, **Sequelize**, and **JWT authentication**. The code is structured into logical folders using modules.
+This week, you've learned how to build a complete **back-end solution** with **CRUD operations** connected to a **MySQL database**. You've also explored how to interact with this backend using **API calls from a web page (front-end)**.
 
-Your challenge is to:
+Now, it's time to put your skills into practice and build your first **full stack application**!
 
-1. **Get the application running** following the installation steps.
-2. **Test the application** to ensure it works as expected.
-3. **Answer the following questions:**
+### Your Task
 
-   - What is happening in `models/index.js`?
-   - In `models/user.js`, there are hooks at the bottom of the model definition. What do these do?
-   - Where are all the routes for the API defined?
-   - If you wanted to create a new route called `/api/students`, which file(s) would you need to update?
-   - If you had additional data besides user data that you'd like to store in the JWT, how could you do that? Which file would you need to update?
+You will develop a **blogging platform** that allows users to:
+
+- **Read** blog articles and filter them by categories.
+- **Register** and log in to manage their content.
+- **Create, update, and delete** their own blog posts.
+
+For real-world examples, check out:
+
+- [Medium](https://medium.com/)
+- [TechCrunch](https://techcrunch.com/)
+
+### Deployment
+
+Once completed, you will **deploy your application** to [Render](https://render.com/). 🚀 Good luck!
 
 ## Key Learnings
 
-- How a full stack application using **Node.js, Express, Sequelize, and JWT authentication** is structured.
-- The complete **JWT authentication lifecycle**, including signing and route protection.
-- How Sequelize models, hooks, and associations work.
-- How to modify and extend a full stack application by adding new routes and modifying authentication.
+- Developing **CRUD operations** in a full stack application.
+- Connecting a **front-end** to a **Node.js/Express backend** with a **MySQL database**.
+- Deploying a **full stack database-driven application** to **Render**.
 
 ## User Story
 
-_As a developer, I want to understand how a full stack application is structured, how authentication is handled, and how I can extend the application by adding new routes and modifying JWT payloads._
+_As a user, I want to register and log in to a blogging platform so that I can create, update, and delete my own blog posts. I also want to browse and filter blog posts by category._
 
 ## Acceptance Criteria
 
-1. The application should run successfully after following the installation steps.
-2. You should be able to test authentication and protected routes.
-3. You should be able to explain the structure and purpose of key files such as `models/index.js`, `models/user.js`, and the route definitions.
-4. You should be able to describe how to:
-   - Add a new API route (`/api/students`).
-   - Modify the JWT payload to include additional data.
+1. Users should be able to **register, log in, and log out** securely.
+2. Users should be able to **create, update, and delete** their own blog posts.
+3. Blog posts should be **filtered by category** for easy navigation.
+4. The application should be **deployed** on [Render](https://render.com/) and accessible online.
+5. The front-end should interact with the API to **dynamically display and update** blog content.
 
 ## Getting Started
 
 ### Installation Steps
 
-1. **Copy the `.env.example` file** and rename it to `.env`.
-2. **Open MySQL in the terminal:**
+1. **Clone the repository** and navigate to the project directory.
+2. **Copy the `.env.example` file** and rename it to `.env`, then update the environment variables.
+3. **Open MySQL and create the database:**
 
 ```bash
 mysql -u root -p
 ```
 
-3. **Run the following command to set up the database:**
-
-```bash
-source db/schema.sql;
-```
-
-4. **Exit MySQL**
-
-```bash
-quit;
-```
-
-5. **Update the .env file and set DB_PASSWORD to your MySQL password.**
-6. **Install dependencies**
+4. **Install dependencies**
 
 ```bash
 npm install
 ```
 
-7. **Seed the database with test data:**
+5. **Seed the database with test data (if applicable):**
 
 ```bash
 npm run seed
 ```
 
-8. **Run the application**
+6. **Run the application locall**
 
 ```bash
 npm start
 ```
 
-9. **Open the application in your browser:**
+7. **Visit the application in your browser**
 
 ```browser
 http://localhost:3001
 ```
 
+## Deploying to Render
+
+1. Create an account on [Render](https://render.com/).
+2. Set up a **web service** for your **backend**.
+3. Use **Render's MySQL database hosting** or an external MySQL provider such as:
+   - [PlanetScale](https://planetscale.com/)
+   - [ClearDB (via Heroku)](https://elements.heroku.com/addons/cleardb)
+4. Update your **database connection settings** in `.env` to match your MySQL provider.
+5. Deploy your **front-end** (if separate) using **Render Static Sites** or another hosting service.
+
 ## Resources
 
+- [Render Deployment Guide](https://render.com/docs/deploy-an-express-app)
 - [Express Documentation](https://expressjs.com/)
 - [Sequelize Documentation](https://sequelize.org/)
-- [jsonwebtoken (JWT) Package](https://www.npmjs.com/package/jsonwebtoken)
+- [MySQL Documentation](https://dev.mysql.com/doc/)

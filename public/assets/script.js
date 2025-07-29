@@ -87,6 +87,8 @@ function fetchPosts() {
         const methodSplit = method.split('*').join('<br><br>');
 
         const div = document.createElement("div");
+        const deleteButton = `<button class="deleteButton" onclick="onClickDeleteButton(this, '${post.id}')">Delete Recipe</button>`;
+
         div.innerHTML = `
             <h3>${post.title}</h3>
             <p>${post.description}</p>
@@ -97,7 +99,8 @@ function fetchPosts() {
             <p>${ingredientsSplit}</p>
             <h4>Method</h4>
             <p>${methodSplit}</p>          
-            <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>`;
+            <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>
+            ${deleteButton}`;
         postsContainer.appendChild(div);
       });
     });
@@ -124,4 +127,28 @@ function createPost() {
       alert("Post created successfully");
       fetchPosts();
     });
+}
+
+// Function to delete recipe
+async function onClickDeleteButton(e, recipeId) {
+  // Get the parent list element of button
+  const div = e.parentElement;
+
+  try {
+    // Send delete request
+    const response = await fetch(`http://localhost:3001/api/posts/${recipeId}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    if (response.ok) {
+      div.remove(); // Remove the recipe element from the DOM
+    } else {
+      const data = await response.json();
+      alert(`Error deleting recipe`);
+    }
+  } catch (error) {
+    console.error("Error deleting recipe:", error);
+  }
 }
