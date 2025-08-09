@@ -91,6 +91,7 @@ function fetchPosts() {
 
         div.innerHTML = `
             <h3>${post.title}</h3>
+            <p>${post.image}</p>
             <p>${post.description}</p>
             <p>Serves: ${post.serves}</p>
             <p>Prep Time: ${post.prep}</p>
@@ -108,6 +109,7 @@ function fetchPosts() {
 
 function createPost() {
   const title = document.getElementById("post-title").value;
+  const image = document.getElementById("post-image").value;
   const description = document.getElementById("post-description").value;
   const serves = document.getElementById("post-serves").value;
   const prep = document.getElementById("post-prep").value;
@@ -120,7 +122,7 @@ function createPost() {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ title, description, serves, prep, cook, ingredients, method, postedBy: "User" }),
+    body: JSON.stringify({ title, image, description, serves, prep, cook, ingredients, method, postedBy: "User" }),
   })
     .then((res) => res.json())
     .then(() => {
