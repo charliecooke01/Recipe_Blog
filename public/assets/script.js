@@ -1,13 +1,13 @@
 let token = localStorage.getItem("authToken");
 
 function register() {
-  const username = document.getElementById("username").value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const usernameInput = document.getElementById("username");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
   fetch("http://localhost:3001/api/users", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ username, email, password }),
+    body: JSON.stringify({ username: usernameInput.value, email: emailInput.value, password: passwordInput.value }),
   })
     .then((res) => res.json())
     .then((data) => {
@@ -15,6 +15,11 @@ function register() {
         alert(data.errors[0].message);
       } else {
         alert("User registered successfully");
+
+        //clear input fields
+        usernameInput.value = "";
+        emailInput.value = "";
+        passwordInput.value = "";
       }
     })
     .catch((error) => {
@@ -35,6 +40,7 @@ function login() {
       // Save the token in the local storage
       if (data.token) {
         localStorage.setItem("authToken", data.token);
+        localStorage.setItem("username", data.userData.username);
         token = data.token;
 
         alert("User Logged In successfully");
@@ -91,7 +97,7 @@ function fetchPosts() {
 
         div.innerHTML = `
             <h3>${post.title}</h3>
-            <p>${post.image}</p>
+            <img src="${post.image}">
             <p>${post.description}</p>
             <p>Serves: ${post.serves}</p>
             <p>Prep Time: ${post.prep}</p>
@@ -108,26 +114,48 @@ function fetchPosts() {
 }
 
 function createPost() {
-  const title = document.getElementById("post-title").value;
-  const image = document.getElementById("post-image").value;
-  const description = document.getElementById("post-description").value;
-  const serves = document.getElementById("post-serves").value;
-  const prep = document.getElementById("post-prep").value;
-  const cook = document.getElementById("post-cook").value;
-  const ingredients = document.getElementById("post-ingredients").value;
-  const method = document.getElementById("post-method").value;
+  const titleInput = document.getElementById("post-title");
+  const imageInput = document.getElementById("post-image");
+  const descriptionInput = document.getElementById("post-description");
+  const servesInput = document.getElementById("post-serves");
+  const prepInput = document.getElementById("post-prep");
+  const cookInput = document.getElementById("post-cook");
+  const ingredientsInput = document.getElementById("post-ingredients");
+  const methodInput = document.getElementById("post-method");
+
+  const postedBy = localStorage.getItem("username");
   fetch("http://localhost:3001/api/posts", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ title, image, description, serves, prep, cook, ingredients, method, postedBy: "User" }),
+      body: JSON.stringify({
+      title: titleInput.value,
+      image: imageInput.value,
+      description: descriptionInput.value,
+      serves: servesInput.value,
+      prep: prepInput.value,
+      cook: cookInput.value,
+      ingredients: ingredientsInput.value,
+      method: methodInput.value,
+      postedBy
+    }),
   })
     .then((res) => res.json())
     .then(() => {
       alert("Post created successfully");
       fetchPosts();
+
+      //Clears input fields
+      titleInput.value = "";
+      imageInput.value = "";
+      descriptionInput.value = "";
+      servesInput.value = "";
+      prepInput.value = "";
+      cookInput.value = "";
+      ingredientsInput.value = "";
+      methodInput.value = "";
     });
 }
 
