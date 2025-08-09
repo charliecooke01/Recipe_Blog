@@ -82,7 +82,7 @@ function fetchPosts() {
 
         //formats string into multiple lines
         const ingredients = post.ingredients;
-        const ingredientsSplit = ingredients.split(',').join('<br>');
+        const ingredientsSplit = ingredients.split('*').join('<br>');
         const method = post.method;
         const methodSplit = method.split('*').join('<br><br>');
 

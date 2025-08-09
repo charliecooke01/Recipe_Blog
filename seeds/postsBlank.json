@@ -1,0 +1,35 @@
+[
+  {
+  "title": "Spaghetti carbonara",
+  "description": "Discover how to make traditional spaghetti carbonara. This classic Italian pasta dish combines a silky cheese sauce with crisp pancetta and black pepper.",
+  "serves": "4",
+  "prep": "15 mins",
+  "cook": "15 mins",
+  "ingredients": "ingredients",
+  "method": "method",
+  "postedBy": "John Doe",
+  "createdOn": "2024-02-04T12:00:00Z"
+  },
+  {
+  "title": "Sticky toffee pudding",
+  "description": "Gorgeous, rich and delightful homemade sticky toffee pudding with homemade sticky toffee sauce and served with ice cream!",
+  "serves": "7",
+  "prep": "1 hour",
+  "cook": "25 mins",
+  "ingredients": "ingredients",
+  "method": "method",
+  "postedBy": "Jane Smith",
+  "createdOn": "2024-02-03T10:15:00Z"
+  },
+  {
+  "title": "Fried calamari",
+  "description": "Try making our crispy calamari and serve with an easy garlic mayo for a sharing starter or as part of a seafood feast.",
+  "serves": "6",
+  "prep": "15 mins",
+  "cook": "10 mins",
+  "ingredients": "ingredients",
+  "method": "method",
+  "postedBy": "Alice Brown",
+  "createdOn": "2024-02-02T08:45:00Z"
+  }
+]
