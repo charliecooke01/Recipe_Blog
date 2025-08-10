@@ -5,6 +5,7 @@
     --color-primary: #051b1a;
 }
 
+/* Containers */
 body {
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
@@ -47,6 +48,18 @@ body {
     height: auto;
 }
 
+.post {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* Start hidden */
+.hidden {
+    display: none;
+}
+
+/* fonts */
 h1 {
     font-family: 'RocknRoll One', sans-serif;
     font-size: 64px;
@@ -66,23 +79,7 @@ h4 {
     font-size: 24px;
 }
 
-.post {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #afafaf;
-    border-radius: 10px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 10px;
-}
-
+/* Buttons */
 button {
     background: white;
     color: var(--color-primary);
@@ -101,6 +98,18 @@ button:hover {
     background: var(--color-primary); 
     color: white;
 }
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #afafaf;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
 
 input[type="text"],
 select,
@@ -132,6 +141,3 @@ input[type="submit"] {
     font-size: 14px;
 }
 
-.hidden {
-    display: none;
-}

@@ -40,6 +40,7 @@ function login() {
       // Save the token in the local storage
       if (data.token) {
         localStorage.setItem("authToken", data.token);
+        // Save the username in the local storage
         localStorage.setItem("username", data.userData.username);
         token = data.token;
 
@@ -95,6 +96,7 @@ function fetchPosts() {
         const div = document.createElement("div");
         const deleteButton = `<button class="deleteButton" onclick="onClickDeleteButton(this, '${post.id}')">Delete Recipe</button>`;
 
+        // Divs and content for posts
         div.innerHTML = `
           <div class="post">
             <div class="post-header">
@@ -133,7 +135,9 @@ function createPost() {
   const ingredientsInput = document.getElementById("post-ingredients");
   const methodInput = document.getElementById("post-method");
 
+  // get the username from local storage
   const postedBy = localStorage.getItem("username");
+
   fetch("http://localhost:3001/api/posts", {
     method: "POST",
     headers: {
