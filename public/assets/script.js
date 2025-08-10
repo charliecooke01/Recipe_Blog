@@ -96,17 +96,29 @@ function fetchPosts() {
         const deleteButton = `<button class="deleteButton" onclick="onClickDeleteButton(this, '${post.id}')">Delete Recipe</button>`;
 
         div.innerHTML = `
-            <h3>${post.title}</h3>
-            <img src="${post.image}">
-            <p>${post.description}</p>
-            <p>Serves: ${post.serves}</p>
-            <p>Prep Time: ${post.prep}</p>
-            <p>Cook Time:${post.cook}</p>
-            <h4>Ingredients</h4>
-            <p>${ingredientsSplit}</p>
-            <h4>Method</h4>
-            <p>${methodSplit}</p>          
-            <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>
+          <div class="post">
+            <div class="post-header">
+                <h3>${post.title}</h3>
+                <div class="post-image">
+                  <img src="${post.image}">
+                </div>
+                <p>${post.description}</p>
+            </div>
+            <div class="post-details">
+                <p>Serves: ${post.serves}</p>
+                <p>Prep Time: ${post.prep}</p>
+                <p>Cook Time:${post.cook}</p>
+            </div>
+            <div class="post-content">
+              <h4>Ingredients</h4>
+              <p>${ingredientsSplit}</p>
+              <h4>Method</h4>
+              <p>${methodSplit}</p>   
+            </div>
+            <div class="post-footer">       
+              <small>By: ${post.postedBy} on ${new Date(post.createdOn).toLocaleString()}</small>
+            </div>
+          </div>
             ${deleteButton}`;
         postsContainer.appendChild(div);
       });

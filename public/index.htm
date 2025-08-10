@@ -8,25 +8,33 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 
+<header>
+    <div class="header-container">
+        <div class="header-title">
+            <h1>Feeling Hungry?</h1>
+            <h2>The first stop for great recipes</h2>
+        </div>
+    </div>
+</header>
 <body>
     <div class="container" id="auth-container">
-        <h2>Register</h2>
+        <h2>Register for Feeling Hungry</h2>
         <input type="text" id="username" placeholder="Username">
         <input type="email" id="email" placeholder="Email">
         <input type="password" id="password" placeholder="Password">
         <button onclick="register()">Register</button>
         <hr>
-        <h2>Login</h2>
+        <h2>Already a member? Please login</h2>
         <input type="email" id="login-email" placeholder="Email">
         <input type="password" id="login-password" placeholder="Password">
         <button onclick="login()">Login</button>
     </div>
 
     <div class="container hidden" id="app-container">
-        <h2>Welcome</h2>
+
         <button onclick="logout()">Logout</button>
         <hr>
-        <h2>Create a Post</h2>
+        <h2>Add your latest recipe</h2>
         <input type="text" id="post-title" placeholder="title">
         <textarea id="post-image" placeholder="image"></textarea>
         <textarea id="post-description" placeholder="description"></textarea>
@@ -37,7 +45,7 @@
         <textarea id="post-method" placeholder="method"></textarea>
         <button onclick="createPost()">Post Recipe</button>
         <hr>
-        <h2>Posts</h2>
+        <h2>Recipes</h2>
         <button onclick="fetchPosts()">Load Recipes</button>
         <div id="posts"></div>
     </div>
