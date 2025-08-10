@@ -29,6 +29,24 @@ body {
     text-align: left;
 }
 
+.post-details-container {
+    display: flex;
+    justify-content: flex-start
+    
+}
+
+.post-detail {
+    padding: 10px 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.post-image{
+    max-width: 100%;
+    height: auto;
+}
+
 h1 {
     font-family: 'RocknRoll One', sans-serif;
     font-size: 64px;
@@ -96,8 +114,12 @@ textarea {
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     font-size: 14px;
+    
 }
 
+textarea {
+    padding: 10px;
+}
 input[type="submit"] {
     border: none;
     background: #4aaaa5;

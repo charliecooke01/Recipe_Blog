@@ -98,16 +98,14 @@ function fetchPosts() {
         div.innerHTML = `
           <div class="post">
             <div class="post-header">
-                <h3>${post.title}</h3>
-                <div class="post-image">
-                  <img src="${post.image}">
-                </div>
-                <p>${post.description}</p>
-            </div>
-            <div class="post-details">
-                <p>Serves: ${post.serves}</p>
-                <p>Prep Time: ${post.prep}</p>
-                <p>Cook Time:${post.cook}</p>
+              <h3>${post.title}</h3>
+              <div class="post-details-container">
+                <p class="post-detail">Serves: ${post.serves}</p>
+                <p class="post-detail">Prep Time: ${post.prep}</p>
+                <p class="post-detail">Cook Time: ${post.cook}</p>
+              </div>
+              <img class="post-image" src="${post.image}">
+              <p>${post.description}</p>
             </div>
             <div class="post-content">
               <h4>Ingredients</h4>

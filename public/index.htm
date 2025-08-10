@@ -35,18 +35,27 @@
         <button onclick="logout()">Logout</button>
         <hr>
         <h2>Add your latest recipe</h2>
+        <label>Recipe title</label><br>
         <input type="text" id="post-title" placeholder="title">
+        <label>Image (use html link)</label><br>
         <textarea id="post-image" placeholder="image"></textarea>
+        <label>Short description of recipe</label><br>
         <textarea id="post-description" placeholder="description"></textarea>
+        <label>How many people does it serve</label><br>
         <input type="text" id="post-serves" placeholder="serves">
+        <label>Prep time</label><br>
         <input type="text" id="post-prep" placeholder="prep">
+        <label>Cook time</label><br>
         <input type="text" id="post-cook" placeholder="cook">
+        <label>Ingredient list (use * character to break line)</label><br>
         <textarea id="post-ingredients" placeholder="ingredients"></textarea>
+        <label>Method (use * character to break line)</label><br>
         <textarea id="post-method" placeholder="method"></textarea>
         <button onclick="createPost()">Post Recipe</button>
         <hr>
         <h2>Recipes</h2>
         <button onclick="fetchPosts()">Load Recipes</button>
+        <hr>
         <div id="posts"></div>
     </div>
 
